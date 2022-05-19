@@ -1,7 +1,6 @@
 const generateText = (name, age) => {
   // Returns output text
   return `${name} (${age} years old)`;
-  // return `Max (29 years old)`;
 };
 
 exports.createElement = (type, text, className) => {
@@ -27,14 +26,11 @@ const validateInput = (text, notEmpty, isNumber) => {
 };
 
 exports.checkAndGenerate = (name, age) => {
-  if (
-    !validateInput(name, true, false) ||
-    !validateInput(age, false, true)
-  ) {
-    return;
+  if (!validateInput(name, true, false) || !validateInput(age, false, true)) {
+    return false;
   }
-
   return generateText(name, age);
-}
+};
 
 exports.generateText = generateText;
+exports.validateInput = validateInput;
